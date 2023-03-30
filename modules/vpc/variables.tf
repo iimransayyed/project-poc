@@ -34,3 +34,18 @@ variable "public_subnet_cidr_az_a" {
   description = "Public subnet CIDR within AZ-a"
   default     = []
 }
+variable "private_subnet_interfix" {
+  type        = string
+  description = "Give interfix to private subnet name"
+  default     = "private"
+}
+variable "private_subnet_cidr_az_a" {
+  type        = list(string)
+  description = "Private subnet CIDR within AZ-a"
+  default     = []
+}
+# variable "default_route" {
+#   type        = string
+#   description = "Default Route from and to internet"
+#   default     = "0.0.0.0/0"
+# }
