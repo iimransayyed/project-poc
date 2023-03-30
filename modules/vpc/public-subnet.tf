@@ -28,3 +28,10 @@ resource "aws_route_table" "public_subnet" {
     var.additional_tags
   )
 }
+# Configuration section for route table association on public route table
+resource "aws_route_table_association" "public_subnet_az_a" {
+  count = length(var.public_subnet_cidr_az_a)
+
+  subnet_id      = element(aws_subnet.public_subnet_az_a[*].id, count.index)
+  route_table_id = aws_route_table.public_subnet.id
+}
