@@ -37,3 +37,9 @@ resource "aws_route_table_association" "private_subnet_az_a" {
   subnet_id      = element(aws_subnet.private_subnet_az_a[*].id, count.index)
   route_table_id = aws_route_table.private_subnet_az_a[0].id
 }
+# Configuration section for default route to internet from private subnet AZ a
+resource "aws_route" "default_route_private_subnet_a" {
+  route_table_id         = aws_route_table.private_subnet_az_a[0].id
+  destination_cidr_block = var.default_route
+  nat_gateway_id         = aws_nat_gateway.nat_gateway_a.id
+}

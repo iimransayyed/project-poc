@@ -36,8 +36,8 @@ resource "aws_route_table_association" "public_subnet_az_a" {
   route_table_id = aws_route_table.public_subnet.id
 }
 # Configuration section for default route to internet from public subnet
-# resource "aws_route" "default_route_public_subnet" {
-#   route_table_id         = aws_route_table.public_subnet.id
-#   destination_cidr_block = var.default_route
-#   gateway_id             = aws_internet_gateway.internet_gateway.id
-# }
+resource "aws_route" "default_route_public_subnet" {
+  route_table_id         = aws_route_table.public_subnet.id
+  destination_cidr_block = var.default_route
+  gateway_id             = aws_internet_gateway.internet_gateway.id
+}
