@@ -24,3 +24,13 @@ variable "additional_tags" {
   description = "Variable if additional tags is needed"
   default     = {}
 }
+variable "public_subnet_interfix" {
+  type        = string
+  description = "Give interfix to public subnet name"
+  default     = "public"
+}
+variable "public_subnet_cidr_az_a" {
+  type        = list(string)
+  description = "Public subnet CIDR within AZ-a"
+  default     = []
+}
