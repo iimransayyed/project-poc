@@ -1,6 +1,6 @@
 locals {
-  iam_policy_name = "${var.name_prefix}-${terraform.workspace}-iam_policy"
-  iam_role_name = "${var.name_prefix}-${terraform.workspace}-iam_role"
+  iam_policy_name = "${var.name_prefix}-${terraform.workspace}-iam_policy1"
+  iam_role_name = "${var.name_prefix}-${terraform.workspace}-iam_role1"
   aws_region= "ap-southeast-1"
   account_id = "514741091671"
 } 
