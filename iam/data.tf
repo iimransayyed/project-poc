@@ -14,7 +14,6 @@ data "aws_iam_policy_document" "instance_assume_role_policy" {
     }
   }
 }
-
 data "aws_iam_policy_document" "example" {
   statement {
     sid = "1"
