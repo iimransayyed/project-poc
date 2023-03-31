@@ -20,13 +20,24 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly-EK
 resource "aws_eks_cluster" "eks" {
   name     = local.cluster_name
   role_arn = aws_iam_role.eks-iam-role.arn
+  enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
   tags     = var.tags
   vpc_config {
     subnet_ids = [var.subnet_id_1, var.subnet_id_2]
+    endpoint_private_access = true
   }
   depends_on = [
     aws_iam_role.eks-iam-role,
+    aws_cloudwatch_log_group.eks,
   ]
+}
+
+## EKS CLuster CW Log group creation
+resource "aws_cloudwatch_log_group" "eks" {
+  # The log group name format is /aws/eks/<cluster-name>/cluster
+  # Reference: https://docs.aws.amazon.com/eks/latest/userguide/control-plane-logs.html
+  name              = "/aws/eks/${local.cluster_name}/cluster"
+  retention_in_days = 7
 }
 
 #Worker Node Creation
