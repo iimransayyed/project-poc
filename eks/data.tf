@@ -1,9 +1,9 @@
 locals {
-  cluster_role = "${var.name_prefix}-${terraform.workspace}-eks-cluster-role"
-  cluster_name = "${var.name_prefix}-${terraform.workspace}-eks-cluster"
+  cluster_role    = "${var.name_prefix}-${terraform.workspace}-eks-cluster-role"
+  cluster_name    = "${var.name_prefix}-${terraform.workspace}-eks-cluster"
   workernode_role = "${var.name_prefix}-${terraform.workspace}-eks-workernode-role"
   node_group_name = "${var.name_prefix}-${terraform.workspace}-nodegroup"
-} 
+}
 
 data "aws_iam_policy_document" "instance_assume_role_policy" {
   statement {
