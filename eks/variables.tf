@@ -24,6 +24,26 @@ variable "subnet_id_2" {
   description = "resource name "  
   default = "subnet-00796ea3af4a2a0f1"
 }
+variable "ami_id" {
+  type    = string
+  description = "resource name "  
+  default = "AL2_x86_64"  
+}
+variable "instance_type" {
+  description = "The type of instance to start"
+  type        = string
+  default     = "t3.small"
+}
+variable "capacity" {
+  type    = string
+  description = "resource name "  
+  default = "ON_DEMAND"  
+}
+variable "storage" {
+  type    = string
+  description = "storage amount "  
+  default = "20"  
+}
 variable "tags" {
   description = "Tags to set on the bucket."
   type        = map(string)
@@ -32,3 +52,4 @@ variable "tags" {
     Environament = "SIT"
   }
 }
+

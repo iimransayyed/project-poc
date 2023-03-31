@@ -60,8 +60,10 @@ resource "aws_iam_role" "workernodes" {
   node_group_name = local.node_group_name
   node_role_arn  = aws_iam_role.workernodes.arn
   subnet_ids   = [var.subnet_id_1, var.subnet_id_2]
-  instance_types = ["t3.small"]
-
+  ami_type = var.ami_id
+  instance_types = ["var.instance_type"]
+  capacity_type  = var.capacity
+  disk_size      = var.storage
   scaling_config {
    desired_size = 1
    max_size   = 1
