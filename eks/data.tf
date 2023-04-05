@@ -1,8 +1,8 @@
 locals {
-  cluster_role    = "${var.name_prefix}-${terraform.workspace}-eks-cluster-role"
-  cluster_name    = "${var.name_prefix}-${terraform.workspace}-eks-cluster"
-  workernode_role = "${var.name_prefix}-${terraform.workspace}-eks-workernode-role"
-  node_group_name = "${var.name_prefix}-${terraform.workspace}-nodegroup"
+  cluster_role     = "${var.name_prefix}-${terraform.workspace}-eks-cluster-role"
+  cluster_name     = "${var.name_prefix}-${terraform.workspace}-eks-cluster"
+  workernode_role  = "${var.name_prefix}-${terraform.workspace}-eks-workernode-role"
+  node_group_name  = "${var.name_prefix}-${terraform.workspace}-nodegroup"
   worker_node_name = "${var.name_prefix}-${terraform.workspace}-eks-managed-workernode-instance"
 }
 

@@ -18,14 +18,14 @@ resource "aws_iam_role_policy_attachment" "AmazonEC2ContainerRegistryReadOnly-EK
 
 #EKS Cluster
 resource "aws_eks_cluster" "eks" {
-  name     = local.cluster_name
-  role_arn = aws_iam_role.eks-iam-role.arn
+  name                      = local.cluster_name
+  role_arn                  = aws_iam_role.eks-iam-role.arn
   enabled_cluster_log_types = ["api", "audit", "authenticator", "controllerManager", "scheduler"]
-  tags     = var.tags
+  tags                      = var.tags
   vpc_config {
-    subnet_ids = [var.subnet_id_1, var.subnet_id_2]
+    subnet_ids              = [var.subnet_id_1, var.subnet_id_2]
     endpoint_private_access = true
-    endpoint_public_access = false
+    endpoint_public_access  = false
   }
   depends_on = [
     aws_iam_role.eks-iam-role,
@@ -79,7 +79,7 @@ resource "aws_eks_node_group" "worker-node-group" {
     name    = aws_launch_template.lt-ng.name
     version = aws_launch_template.lt-ng.latest_version
     # version = "1"
-  }  
+  }
   scaling_config {
     desired_size = 2
     max_size     = 3
