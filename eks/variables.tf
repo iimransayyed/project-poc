@@ -17,23 +17,23 @@ variable "cluster_name" {
 variable "subnet_id_1" {
   type        = string
   description = "resource name "
-  default     = "subnet-0af6373be1dd68f7f"
+  default     = "subnet-0fbff335b148f99d0"
 }
 variable "subnet_id_2" {
   type        = string
   description = "resource name "
-  default     = "subnet-00796ea3af4a2a0f1"
+  default     = "subnet-0a78d98679043dcb0"
 }
 variable "ami_id" {
   type        = string
   description = "resource name "
   default     = "AL2_x86_64"
 }
-# variable "instance_type" {
-#   description = "The type of instance to start"
-#   type        = string
-#   default     = "t3.small"
-# }
+variable "instance_type" {
+  description = "The type of instance to start"
+  type        = string
+  default     = "t3.small"
+}
 variable "capacity" {
   type        = string
   description = "resource name "
@@ -42,7 +42,7 @@ variable "capacity" {
 variable "storage" {
   type        = string
   description = "storage amount "
-  default     = "20"
+  default     = "100"
 }
 variable "tags" {
   description = "Tags to set on the bucket."
@@ -52,4 +52,3 @@ variable "tags" {
     Environament     = "SIT"
   }
 }
-
