@@ -76,8 +76,9 @@ resource "aws_eks_node_group" "worker-node-group" {
   capacity_type   = var.capacity
   tags            = var.tags
   launch_template {
-    name    = aws_launch_template.lt-ng1.name
-    version = "1"
+    name    = aws_launch_template.lt-ng.name
+    version = aws_launch_template.lt-ng.latest_version
+    # version = "1"
   }  
   scaling_config {
     desired_size = 2

@@ -1,8 +1,9 @@
 #### User data for worker launch
-resource "aws_launch_template" "lt-ng1" {
+resource "aws_launch_template" "lt-ng" {
   instance_type           = "t3.small"
   key_name                = "eks-workernode"
-  name                    = format("%s-ng1", local.worker_node_name)
+  name                    = format(local.worker_node_name)
+  update_default_version  = true
   tag_specifications { 
         resource_type = "instance"
     tags = {
@@ -13,7 +14,7 @@ resource "aws_launch_template" "lt-ng1" {
     device_name = "/dev/xvda"
 
     ebs {
-      volume_size = 100
+      volume_size = 50
       volume_type = "gp2"
     }
   }
