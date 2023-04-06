@@ -8,6 +8,7 @@ resource "aws_launch_template" "lt-ng" {
     resource_type = "instance"
     tags = {
       Name = format(local.worker_node_name)
+      Backup = "Yes"
     }
   }
   block_device_mappings {
@@ -25,6 +26,7 @@ resource "aws_launch_template" "lt-ng" {
 
     tags = {
       Name = format(local.worker_node_name)
+      Backup = "Yes"
     }
   }
   lifecycle {
