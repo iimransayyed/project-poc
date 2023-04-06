@@ -5,6 +5,12 @@ output "backup_key" {
 output "backup_vault" {
   value = (aws_backup_vault.backup_vault.arn)
 }
-output "aws_backup_plan" {
+output "backup_vault_id" {
+  value = (aws_backup_vault.backup_vault.id)
+}
+output "aws_backup_plan_arn" {
  value =  (aws_backup_plan.plan.arn)
+}
+output "aws_backup_plan_id" {
+ value =  (aws_backup_plan.plan.id)
 }

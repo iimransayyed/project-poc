@@ -2,7 +2,7 @@ locals {
   backups = {
     schedule  = "cron(0 20 * * ? *)" /* UTC Time */
     cold_storage_after = 14
-    retention = 7 // days
+    retention = 365 // days
   }
   env    = "sit"
   client = "pbb"

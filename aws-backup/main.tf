@@ -2,7 +2,7 @@ locals {
   env    = "sit"
   client = "pbb"
 }
-module "backup_staging" {
+module "pbb_sit_backup" {
   source = "../modules/aws-backup/"
 
   backup_vault_name = "${local.client}-${local.env}-backup-vault" 
