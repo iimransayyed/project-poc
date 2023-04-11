@@ -33,6 +33,18 @@ resource "aws_eip" "nat_eip_a" {
     var.additional_tags
   )
 }
+resource "aws_eip" "nat_eip_b" {
+  vpc = true
+
+  tags = merge(
+    {
+      "Name" = format(
+        "nat-${var.environment_name}-b",
+      )
+    },
+    var.additional_tags
+  )
+}
 # Configuration section for NAT Gateway
 # Subnet used by NAT Gateway is the first index public subnet in each AZ
 resource "aws_nat_gateway" "nat_gateway_a" {
@@ -43,6 +55,21 @@ resource "aws_nat_gateway" "nat_gateway_a" {
     {
       "Name" = format(
         "nat-${var.environment_name}-a",
+      )
+    },
+    var.additional_tags
+  )
+
+  depends_on = [aws_internet_gateway.internet_gateway]
+}
+resource "aws_nat_gateway" "nat_gateway_b" {
+  allocation_id = aws_eip.nat_eip_b.id
+  subnet_id     = aws_subnet.public_subnet_az_b[0].id
+
+  tags = merge(
+    {
+      "Name" = format(
+        "nat-${var.environment_name}-b",
       )
     },
     var.additional_tags
