@@ -1,4 +1,4 @@
 locals {
-  bucket_name = "${var.name_prefix}-${terraform.workspace}-bucket"
-  bucket_name1 = "${var.name_prefix}-${terraform.workspace}-bucket1"
+  bucket_name1 = "${var.name_prefix}-${terraform.workspace}-demos3-bucket1"
+  bucket_name2 = "${var.name_prefix}-${terraform.workspace}-demos4-bucket2"
 } 

@@ -2,7 +2,7 @@
 module "s3bucket_1" {
   source = "../../modules/s3/"
 
-  bucket_name        = local.bucket_name
+  bucket_name        = local.bucket_name1
 
   additional_tags = {
     Environment = "SIT"
@@ -13,9 +13,7 @@ module "s3bucket_1" {
 
 module "s3bucket_2" {
   source = "../../modules/s3/"
-
-  bucket_name        = local.bucket_name1
-
+  bucket_name        = local.bucket_name2
   additional_tags = {
     Environment = "SIT"
     Owner       = "PBB"

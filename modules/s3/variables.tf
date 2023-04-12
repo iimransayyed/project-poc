@@ -9,6 +9,11 @@ variable "acl_value" {
   description = "acl value"
   default     = "private"
 }
+variable "acl_value1" {
+  type        = string
+  description = "acl value"
+  default     = "log-delivery-write"
+}
 variable "additional_tags" {
   type        = map(string)
   description = "Variable if additional tags is needed"
